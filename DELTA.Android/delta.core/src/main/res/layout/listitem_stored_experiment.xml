@@ -1,0 +1,160 @@
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    xmlns:fontawesometext="http://schemas.android.com/apk/res-auto"
+
+    android:animateLayoutChanges="true"
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="6dp"
+    card_view:contentPadding="10dp"
+    card_view:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.beardedhen.androidbootstrap.FontAwesomeText
+                android:id="@+id/listitem_stored_experiment_fontAwesomePlayIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                fontawesometext:fa_icon="fa-play-circle-o"
+                android:textColor="@color/bbutton_success"
+                android:layout_marginRight="6dp"
+                android:textSize="22sp"
+                />
+
+            <LinearLayout
+            android:id="@+id/stored_experiment_listitem_headerLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/available_experiment_listitem_txtExperimentName"
+                android:textSize="17dp"
+                android:maxLines="2"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="by "
+                    android:textSize="17dp"/>
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/available_experiment_listitem_txtExperimenAuthor"
+                    android:textSize="17dp"
+                    android:maxLines="2"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:animateLayoutChanges="true"
+            android:id="@+id/stored_experiment_listitem_bodyLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal">
+
+                <CheckBox
+                    android:id="@+id/stored_experiment_listitem_chkCompatible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Compatible"
+                    android:clickable="false"
+                    android:layout_weight="1"/>
+                <CheckBox
+                    android:id="@+id/stored_experiment_listitem_chkInstalled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Installed"
+                    android:clickable="false"
+                    android:layout_weight="1"/>
+                <CheckBox
+                    android:id="@+id/stored_experiment_listitem_chkRunning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Running"
+                    android:clickable="false"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/available_experiment_listitem_btnInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="INFO/MANAGE"
+                    bootstrap:bb_icon_left="fa-info-circle"
+                    bootstrap:bb_type="primary"
+                    android:layout_weight="1"
+                    />
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/available_experiment_listitem_btnStartExperiment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="START LOGGING"
+                    bootstrap:bb_icon_left="fa-play-circle-o"
+                    bootstrap:bb_type="success"
+                    android:layout_weight="1"
+                    />
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/available_experiment_listitem_btnStopExperiment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:text="STOP LOGGING"
+                    bootstrap:bb_icon_left="fa-times-circle-o"
+                    bootstrap:bb_type="danger"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
+    <!--
+    </android.support.v7.widget.CardView>
+    -->

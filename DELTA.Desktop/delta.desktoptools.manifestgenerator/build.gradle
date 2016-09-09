@@ -1,0 +1,22 @@
+//manifest generator build script
+
+
+apply plugin: 'java'
+//apply plugin: 'application'
+
+
+//mainClassName = 'delta.desktoptools.manifestgenerator.MainClass'
+
+dependencies {
+	compile project(':delta.sharedlib')
+	compile project(':delta.desktoptools.library')
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'delta.desktoptools.manifestgenerator.MainClass'
+	}
+	doFirst {
+		from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	}
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:id="gridMain" hgap="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="delta.desktoptools.experimentmaker.PluginClassControlController">
+    <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="60.0" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="115.0" />
+        <ColumnConstraints hgrow="SOMETIMES" />
+        <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="150.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+      <RowConstraints vgrow="NEVER" />
+        <RowConstraints vgrow="NEVER" />
+    </rowConstraints>
+    <children>
+        <CheckBox fx:id="chkLog" mnemonicParsing="false" text="Log?" GridPane.halignment="CENTER" GridPane.rowSpan="2147483647" />
+        <Label text="Plugin name" GridPane.columnIndex="1" />
+        <Separator GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+        <HBox GridPane.columnIndex="2" GridPane.columnSpan="2147483647">
+            <children>
+                <Label fx:id="labelPluginName" text="N/A">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label fx:id="labelRequiresRoot" text="ROOT" textFill="RED">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="labelRequiresWakelock" text="WAKELOCK" textFill="#1206ff">
+                    <font>
+                        <Font name="System Bold" size="12.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="5.0" />
+                    </HBox.margin>
+                </Label>
+            </children>
+        </HBox>
+        <Label text="Class ID" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label fx:id="labelClassID" text="N/A" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
+        <Separator GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="3" />
+        <Label text="Description" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Label fx:id="labelDescription" text="N/A" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="4" />
+        <Separator GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="5" />
+        <Label text="Developer notes" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Label fx:id="labelDeveloperDescription" text="N/A" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="2147483647" GridPane.rowIndex="6" />
+        <Separator GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="7" />
+        <Label text="Polling frequency" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+        <ComboBox fx:id="comboFrequency" prefHeight="25.0" prefWidth="125.0" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+      <Label fx:id="labelEventDrivenPlugin" text="N/A (this plugin is event-driven)" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+      <HBox alignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+         <children>
+              <CheckBox fx:id="chkAllowOptOut" disable="true" mnemonicParsing="false" text="Optional?">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin>
+            </CheckBox>
+            <Button fx:id="buttonSettings" mnemonicParsing="false" text="Settings" />
+         </children>
+      </HBox>
+
+
+    </children>
+   <padding>
+      <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
+   </padding>
+</GridPane>

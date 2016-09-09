@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DELTA.Desktop.iml" filepath="$PROJECT_DIR$/DELTA.Desktop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/delta.desktoptools.experimentmaker/delta.desktoptools.experimentmaker.iml" filepath="$PROJECT_DIR$/delta.desktoptools.experimentmaker/delta.desktoptools.experimentmaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/delta.desktoptools.library/delta.desktoptools.library.iml" filepath="$PROJECT_DIR$/delta.desktoptools.library/delta.desktoptools.library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/delta.desktoptools.logtool/delta.desktoptools.logtool.iml" filepath="$PROJECT_DIR$/delta.desktoptools.logtool/delta.desktoptools.logtool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/delta.desktoptools.manifestgenerator/delta.desktoptools.manifestgenerator.iml" filepath="$PROJECT_DIR$/delta.desktoptools.manifestgenerator/delta.desktoptools.manifestgenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/delta.sharedlib/delta.sharedlib.iml" filepath="$PROJECT_DIR$/delta.sharedlib/delta.sharedlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/delta.webserver/delta.webserver.iml" filepath="$PROJECT_DIR$/delta.webserver/delta.webserver.iml" />
+    </modules>
+  </component>
+</project>

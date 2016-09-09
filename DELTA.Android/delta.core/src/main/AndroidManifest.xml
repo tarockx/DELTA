@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="unipd.elia.deltacore">
+
+    <permission
+        android:name="unipd.elia.delta.DELTA_SERVICE_MANAGER"
+        android:description="@string/startDeltaServicePermission_description"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="unipd.elia.delta.DELTA_SERVICE_MANAGER" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light"
+        tools:replace="android:icon">
+
+        <!-- Activities -->
+        <activity
+            android:name=".ui.ExperimentDetailsActivity"
+            android:label="@string/title_activity_experiment_details" >
+        </activity>
+        <activity
+            android:name=".ui.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".ui.ImportExperimentActivity"
+            android:label="@string/title_activity_import_experiment"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- Stupid workaround as Android devs haven't ever heard of a file name with multiple dots in it... -->
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\..*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\..*\\..*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\..*\\..*\\..*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.deltaexp"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.deltaexp"
+                    android:scheme="file" />
+            </intent-filter>
+        </activity>
+
+        <!-- Broadcast receivers -->
+        <receiver
+            android:name=".BootCompletedBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="BootCompletedBroadcastReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".UploadSchedulerBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name=".UploadSchedulerBroadcastReceiver" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".ui.TabbedMainActivity"
+            android:label="@string/title_activity_tabbed_main" >
+            <intent-filter android:label="DELTA">
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

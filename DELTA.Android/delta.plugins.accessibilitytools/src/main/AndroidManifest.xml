@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="unipd.delta.plugins.accessibilitytools">
+
+    <uses-permission android:name="android.permission.BIND_ACCESSIBILITY_SERVICE" />
+
+    <application android:allowBackup="true" android:label="@string/app_name">
+        <service android:name=".DeltaAccessibilityService"
+            android:label="@string/accessibility_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"
+                    android:resource="@xml/delta_accessibility_service_config" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/delta_accessibility_service_config"
+                />
+        </service>
+
+    </application>
+
+</manifest>

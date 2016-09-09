@@ -1,0 +1,4 @@
+include ':buildscripts', ':delta.core', ':delta.logsubstrate', ':delta.plugins.ambientsensors', ':delta.plugins.geolocation', ':delta.androidsharedlib', ':delta.plugins.networklogger', ':delta.plugins.screentools', ':delta.plugins.power', ':delta.plugins.systemtools', ':delta.plugins.connectivitytools', ':delta.plugins.telephonytools', ':delta.plugins.messagingtools', ':delta.plugins.accessibilitytools', ':delta.plugins.multimediatools'
+include ':delta.sharedlib'
+project(":delta.sharedlib").projectDir = file("../DELTA.Desktop/delta.sharedlib")
+

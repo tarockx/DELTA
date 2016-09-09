@@ -1,0 +1,1 @@
+Default position for the DELTA logs repository. By default the DELTA WebServer will save incoming log data files here and the Log Tool will look here for logs to process. Note that you can override this path by editing delta_settings.ini

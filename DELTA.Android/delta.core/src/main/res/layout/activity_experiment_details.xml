@@ -1,0 +1,381 @@
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+        android:paddingTop="@dimen/activity_vertical_margin"
+
+        tools:context="unipd.elia.deltacore.ui.ExperimentDetailsActivity"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:id="@+id/scrollView"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/experiment_details_txtExperimentInfoHeader"
+                    android:id="@+id/experiment_details_txtExperimentInfoHeader"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardCornerRadius="0dp"
+                    card_view:cardElevation="6dp"
+                    card_view:contentPadding="10dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experiment_details_txtExperimentNameLabel"
+                                android:id="@+id/experiment_details_txtExperimentNameLabel"
+                                android:layout_column="0"
+                                android:textStyle="bold"
+                                android:layout_marginRight="3dp"
+                                android:maxLines="3"
+                                android:layout_gravity="center_vertical"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experiment_details_txtExperimentName"
+                                android:id="@+id/experiment_details_txtExperimentName"
+                                android:layout_column="1"
+                                android:maxLines="3"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experiment_details_txtExperimentAuthorLabel"
+                                android:id="@+id/experiment_details_txtExperimentAuthorLabel"
+                                android:layout_column="0"
+                                android:textStyle="bold"
+                                android:layout_marginRight="3dp"
+                                android:layout_gravity="center_vertical"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experiment_details_txtExperimentAuthor"
+                                android:id="@+id/experiment_details_txtExperimentAuthor"
+                                android:layout_column="1"
+                                android:maxLines="3"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experiment_details_txtExperimentPackageIDLabel"
+                                android:id="@+id/experiment_details_txtExperimentPackageIDLabel"
+                                android:layout_column="0"
+                                android:textStyle="bold"
+                                android:layout_marginRight="3dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experiment_details_txtExperimentPackageID"
+                                android:id="@+id/experiment_details_txtExperimentPackageID"
+                                android:layout_column="1"
+                                android:maxLines="3"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/experiment_details_txtExperimentStatusLabel"
+                                android:id="@+id/experiment_details_txtExperimentStatusLabel"
+                                android:layout_column="0"
+                                android:textStyle="bold"
+                                android:layout_marginRight="3dp"
+                                android:layout_gravity="center_vertical" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/experiment_details_txtExperimentStatus"
+                                android:layout_column="1"
+                                android:layout_weight="1"/>
+                        </TableRow>
+
+                    </TableLayout>
+                </android.support.v7.widget.CardView>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/experiment_details_txtExperimentDescriptionLabel"
+                    android:id="@+id/experiment_details_txtExperimentDescriptionLabel"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"/>
+
+                <android.support.v7.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    card_view:cardCornerRadius="0dp"
+                    card_view:cardElevation="6dp"
+                    card_view:contentPadding="10dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <!--<TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/experiment_details_txtExperimentDescription"
+                        android:id="@+id/experiment_details_txtExperimentDescription"
+                        android:maxLines="20000"
+                        android:textStyle="italic"
+                        android:textColor="@color/secondary_text_default_material_light" />-->
+                    <com.bluejamesbond.text.DocumentView xmlns:ext="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/experiment_details_txtExperimentDescription"
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        ext:documentView_textAlignment="justified"
+                        ext:documentView_text="@string/experiment_details_txtExperimentDescription"                         />
+
+                </android.support.v7.widget.CardView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/experiment_details_txtExperimentCertificateLabel"
+                    android:id="@+id/experiment_details_txtExperimentCertificateLabel"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"/>
+
+                <android.support.v7.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    card_view:cardCornerRadius="0dp"
+                    card_view:cardElevation="6dp"
+                    card_view:contentPadding="10dp"
+                    card_view:cardUseCompatPadding="true"
+                    android:id="@+id/experiment_details_cardViewCertificate">
+
+
+                </android.support.v7.widget.CardView>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/experiment_details_txtPluginsHeader"
+                    android:id="@+id/experiment_details_txtPluginsHeader"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardCornerRadius="0dp"
+                    card_view:cardElevation="6dp"
+                    card_view:contentPadding="10dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/experiment_details_layoutPluginList">
+                    </LinearLayout>
+
+                    <!--<ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/experiment_details_listViewPlugins"
+                        tools:listitem="@layout/plugin_details_checkable_layout" />-->
+                </android.support.v7.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/experiment_details_txtActionsHeader"
+                    android:id="@+id/experiment_details_txtActionsHeader"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    card_view:cardCornerRadius="0dp"
+                    card_view:cardElevation="6dp"
+                    card_view:contentPadding="10dp"
+                    card_view:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/experiment_details_txtUploadServerUrlHeader"
+                                android:layout_gravity="center_horizontal"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:textStyle="italic"
+                                android:id="@+id/experiment_details_txtUploadServerUrl"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.beardedhen.androidbootstrap.BootstrapButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="@string/experiment_details_btnUploadNow"
+                                android:id="@+id/experiment_details_btnUploadNow"
+                                bootstrap:bb_icon_left="fa-cloud-upload"
+                                bootstrap:bb_type="primary"
+                                />
+
+                            <com.beardedhen.androidbootstrap.BootstrapButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:text="@string/experiment_details_btnDumpLogs"
+                                android:id="@+id/experiment_details_btnDumpLogs"
+                                bootstrap:bb_icon_left="fa-save"
+                                bootstrap:bb_type="warning"
+                                />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/experiment_details_btnStart"
+                android:id="@+id/experiment_details_btnStart"
+                bootstrap:bb_icon_left="fa-play-circle-o"
+                bootstrap:bb_type="success"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/experiment_details_btnStop"
+                android:id="@+id/experiment_details_btnStop"
+                bootstrap:bb_icon_left="fa-times-circle-o"
+                bootstrap:bb_type="danger"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/experiment_details_btnInstall"
+                android:id="@+id/experiment_details_btnInstall"
+                bootstrap:bb_icon_left="fa-sign-in"
+                bootstrap:bb_type="primary"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/experiment_details_btnDelete"
+                android:id="@+id/experiment_details_btnDelete"
+                bootstrap:bb_icon_left="fa-trash"
+                bootstrap:bb_type="danger"
+                />
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/experiment_details_btnRemove"
+                android:id="@+id/experiment_details_btnRemove"
+                bootstrap:bb_icon_left="fa-trash"
+                bootstrap:bb_type="warning"
+                />
+
+        </LinearLayout>
+    </LinearLayout>

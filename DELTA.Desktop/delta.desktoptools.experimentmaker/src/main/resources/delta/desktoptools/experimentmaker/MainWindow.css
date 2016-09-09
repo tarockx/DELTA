@@ -1,0 +1,38 @@
+.tab-pane .tab-header-area .tab-header-background {
+    //-fx-opacity: 0;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.mainPluginGrid{
+    /*-fx-border-width: 1, 0, 1, 0;
+    -fx-border-color: black, transparent, black, transparent;*/
+}
+.logEnabled{
+    -fx-background-color: #a8ff9f;
+}
+.logDisabled{
+    -fx-background-color: #dfdfdf;
+}
+
+.headerLabelPackage{
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+}
+
+.headerLabel{
+    -fx-font-size: 15;
+}
+
+.externalLabel{
+    -fx-font-size: 15;
+    color: #ff0000;
+    -fx-font-weight: bold;
+}
+
+.separator *.line {
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}

@@ -1,0 +1,1 @@
+By default the DELTA Experiment Maker will look here for precompiled AAR DELTA plugin packages. If you have a DELTA Plugin from a third party distributed as an AAR library, just drop it here to use it. Note that you can override this path by editing delta_settings.ini

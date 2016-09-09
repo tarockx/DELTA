@@ -1,0 +1,42 @@
+import java.nio.file.DirectoryStream
+
+import static java.nio.file.StandardCopyOption.*;
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+	
+}
+
+subprojects{
+    plugins.withType(JavaPlugin){ //create copyOutput task for all java projects
+        Path outdir = Paths.get(rootProject.projectDir.parentFile.getCanonicalPath() + "/bin")
+
+        project.tasks.create("deltabuild")<<{
+            !Files.exists(outdir)
+                Files.createDirectories(outdir)
+
+            DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(project.buildDir.getCanonicalPath() + "/libs"))
+            if (stream == null) {
+                return
+            }
+            for (Path entry : stream) {
+                if (!Files.isDirectory(entry)) {
+                    //Path infile = Paths.get(buildDir.getCanonicalPath() + "/libs/" + project.name + ".jar")
+                    //Path outfile = Paths.get(rootProject.projectDir.getCanonicalPath() + "/bin/" + project.name + ".jar")
+                    Path outfile = Paths.get(rootProject.projectDir.parentFile.getCanonicalPath() + "/bin/" + entry.fileName)
+                    Files.copy(entry, outfile, REPLACE_EXISTING)
+                }
+            }
+            stream.close()
+        }
+
+        tasks['deltabuild'].dependsOn tasks['build']
+        //tasks['copyDependencies'].dependsOn tasks['build']
+        //tasks['deltabuild'].dependsOn tasks['copyDependencies']
+    }
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="C:/dev/gradle-2.5" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/delta.desktoptools.experimentmaker" />
+            <option value="$PROJECT_DIR$/delta.desktoptools.library" />
+            <option value="$PROJECT_DIR$/delta.desktoptools.logtool" />
+            <option value="$PROJECT_DIR$/delta.desktoptools.manifestgenerator" />
+            <option value="$PROJECT_DIR$/delta.sharedlib" />
+            <option value="$PROJECT_DIR$/delta.webserver" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

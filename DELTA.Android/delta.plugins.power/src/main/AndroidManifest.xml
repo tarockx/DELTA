@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="unipd.elia.delta.plugins.power">
+
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application android:allowBackup="true" android:label="@string/app_name">
+
+    </application>
+
+</manifest>

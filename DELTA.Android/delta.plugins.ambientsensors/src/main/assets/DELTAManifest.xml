@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<DeltaPluginManifest packageID="unipd.elia.delta.plugins.ambientsensors" version="1">
+    <PluginClasses>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingAccelerometerSensor" PluginName="Accelerometer sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin logs the device's Accelerometer.  Note: this does NOT log the user's geographical location/movement</PluginDescription>
+            <DeveloperDescription>Logged values represent the relative acceleration of the device through space, in m/s^2.</DeveloperDescription>
+        </PluginClass>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingGravitySensor" PluginName="Gravity sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin logs the device's Gravity Sensor.</PluginDescription>
+            <DeveloperDescription>This is similar to the Accelerometer plugin, but only measures the influence of gravity. Values are in m/s^2</DeveloperDescription>
+        </PluginClass>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingGyroscopeSensor" PluginName="Gyroscope sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin logs the device's gyroscope.</PluginDescription>
+            <DeveloperDescription>Values are in radians/second and measure the rate of rotation around the device's local X, Y and Z axis. Rotation is positive in the counter-clockwise direction</DeveloperDescription>
+        </PluginClass>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingHumiditySensor" PluginName="Humidity sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin logs the device's Humidity Sensor, measuring the percentage of relative humidity in the air around the device</PluginDescription>
+            <DeveloperDescription>Logged values represent the ambient relative humidity, in %. Note: not many devices have this sensor, unless you're sure the devices you're going to deploy on are equipped with it, it's recommended to make this logging operation optional.</DeveloperDescription>
+        </PluginClass>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingLightSensor" PluginName="Light sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin logs the device's Light Sensor, measuring the amount of ambient light around the device</PluginDescription>
+            <DeveloperDescription>The unit of measurement is lux. Note that, while quite common, this sensor is not found on all devices. Consider making it optional if you can.</DeveloperDescription>
+        </PluginClass>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingMagneticFieldSensor" PluginName="Magnetic Field sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin measures the magnetic field around the device.</PluginDescription>
+            <DeveloperDescription>The values are measured in microtesla (uT).</DeveloperDescription>
+        </PluginClass>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingPressureSensor" PluginName="Pressure sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin logs the device's Pressure Sensor, measuring the atmospheric pressure around the device.</PluginDescription>
+            <DeveloperDescription>Logged values are in millibars. Note: few devices have this sensor, consider marking this as optional if possible.</DeveloperDescription>
+        </PluginClass>
+        <PluginClass AllowOptOut="false" IsEnabled="false" MinPollingFrequency="0" MinSDK="15" PluginAuthor="Elia Dal Santo" PluginClassQualifiedName="unipd.elia.delta.plugins.ambientsensors.PollingProximitySensor" PluginName="Proximity sensor logger" PluginPackage="unipd.elia.delta.plugins.ambientsensors" PollingFrequency="-1" RequiresRoot="false" RequiresWakelock="false" SupportsEvents="false" SupportsPolling="true">
+            <PluginDescription>This plugin logs the device Proximity Sensor, measuring how far the front of the device is from any solid object.</PluginDescription>
+            <DeveloperDescription>Normally reports a floating-point value representing the distance between the front of the device from any solid objects, in centimeters. Note however that the unit of measurement is not standard and that some devices may only report a binary value (with '0' meaning 'there's something near the device' and any other value meaning 'there's nothing near the device')</DeveloperDescription>
+        </PluginClass>
+    </PluginClasses>
+</DeltaPluginManifest>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DELTA.Plugins.accessibilitytools</string>
+    <string name="accessibility_service_label">DELTA Accessibility Helper</string>
+    <string name="accessibility_service_description">This service is required by a DELTA Experiment to log some advanced system data</string>
+</resources>

@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+apply from: "$rootDir/buildscripts/build.gradle"
+
+android {
+    signingConfigs {
+        if(project.hasProperty("keystoreFile") && project.hasProperty("keystorePassword") && project.hasProperty("keyAlias") && project.hasProperty("keyPassword")) {
+            println("== DELTA: Signing information was supplied to the build script, APK will be signed when building in release mode")
+            release {
+                storeFile file(project.keystoreFile)
+                storePassword project.keystorePassword
+                keyAlias project.keyAlias
+                keyPassword project.keyPassword
+            }
+        }
+        else {
+            println("No signing information supplied, experiment package will be unsigned")
+        }
+    }
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+    defaultConfig {
+        applicationId "unipd.elia.delta.logsubstrate"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if(project.hasProperty("keystoreFile") && project.hasProperty("keystorePassword") && project.hasProperty("keyAlias") && project.hasProperty("keyPassword")) {
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+}
+
+repositories{
+    maven{
+        url "http://ksoap2-android.googlecode.com/svn/m2-repo"
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':delta.sharedlib')
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile project(':delta.androidsharedlib')
+    compile 'com.google.code.ksoap2-android:ksoap2-android:3.4.+'
+    includeDependencies()
+}
+
+def includeDependencies(){
+    if(hasProperty("experimentConfigurationPath") && hasProperty("experimentOutputPath")){
+        File configpath = file(experimentConfigurationPath)
+        if(!configpath.exists())
+            throw new Exception("== DELTA: specified input configuration file (" + experimentConfigurationPath + ") doesn't exist. Aborting compilation...")
+
+        File outpath = file(experimentOutputPath)
+        if(!outpath.exists())
+            throw new Exception("== DELTA: specified output directory (" + experimentOutputPath + ")doesn't exist. Aborting compilation...")
+
+        def res = getPluginsToInclude()
+        android.defaultConfig.applicationId = res.package
+        String apkPath = file(experimentOutputPath).absolutePath + "/experiment.apk"
+        android.applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                output.outputFile = new File(apkPath)
+            }
+        }
+        task cleanExtra(type: Delete) {
+            delete  apkPath
+        }
+        clean.dependsOn(cleanExtra)
+
+        res.plugins.each { p ->
+            repositories{
+                flatDir {
+                    dirs project(p).projectDir.absolutePath + '/libs'
+                }
+            }
+
+            dependencies{
+                compile project(p)
+            }
+        }
+
+        if(hasProperty("externalPluginsDir")) {
+            repositories{
+                flatDir {
+                    dirs externalPluginsDir
+                }
+            }
+            res.externalPlugins.each { p ->
+                dependencies {
+                    compile(name: p.replace(".aar", ""), ext: 'aar')
+                }
+            }
+        }
+    }
+    else{
+        println "== DELTA: No experiment configuration file specified, all available plugins will be built into the logging service"
+        def res = getAllPluginProjects()
+
+        res.each { p ->
+            repositories{
+                flatDir {
+                    dirs p.projectDir.absolutePath + '/libs'
+                }
+            }
+
+            dependencies{
+                compile project(p.getPath())
+            }
+        }
+    }
+}

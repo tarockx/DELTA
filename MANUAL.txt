@@ -1,0 +1,25 @@
+PREREQUISITES
+To compile the DELTA tools and use them to build new DELTA Experiments you need the following:
+
+	-Java 7 JDK by Oracle
+	-Android SDK with the following modules installed:
+		-SDK Platform v22
+		-Android SDK Platform-tools v22 
+		-Android SDK Build-tools v22.0.1
+		-Android Support Repository
+		
+Important note: version 7 (not 8!) of the JDK is required, due to limitations of the Android SDK, which at present can only work with the JDK7 libraries. 
+
+
+CONFIGURING PATHS
+Before you can start to build experiments, the project needs to know the path to your AndroidSDK installation. There are two ways to achieve this:
+	1)Set the ANDROID_HOME environmental variable to the root of your AndroidSDK installation
+	2)Create a "local.properties" file inside the "DELTA.Android" folder and put the following line in it:
+		sdk.home=/path/to/your/androidSDK/installation
+
+This should be enough to allow you to use the DELTA Tools and build your experiments.
+
+
+BUILDING THE TOOLS
+Run the bash script "DELTA_*.sh" and use it to build the desktoptools.
+If no errors occur the DELTA Desktop Tools have been compiled correctly into the bin/ directory. You can use the same script to launch the Experiment Maker tool and start to create your experiments! Happy logging!

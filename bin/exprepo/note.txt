@@ -1,0 +1,1 @@
+Default position for the DELTA experiments repository. By default the DELTA WebServer will look here for experiments to offer for download, and the Experiment Maker utility will build new experiment packages here. This setting can be overriden in the delta_settings.ini file.

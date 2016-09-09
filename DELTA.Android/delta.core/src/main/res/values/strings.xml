@@ -1,0 +1,75 @@
+<resources>
+    <string name="app_name">DELTA.Core</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Main activity -->
+    <string name="main_activity_btnManageExperiment_text">View/Manage Experiments</string>
+    <string name="main_activity_tvMainActivityHeader_text">DELTA Core</string>
+
+    <!-- Manage Experiments activity -->
+    <string name="title_activity_manage_experiments">Manage Experiments</string>
+    <string name="manage_experiments_activity_tvHeader_text">Available experiments</string>
+
+
+    <!-- ExperimentDetails activity -->
+    <string name="title_activity_experiment_details">Experiment Details</string>
+    <string name="experiment_details_txtExperimentAuthor">[N/A]</string>
+    <string name="experiment_details_txtExperimentName">[N/A]</string>
+    <string name="experiment_details_txtExperimentPackageID">[N/A]</string>
+    <string name="experiment_details_txtExperimentDescription">[No description provided]</string>
+    <string name="experiment_details_txtExperimentNameLabel">Title</string>
+    <string name="experiment_details_txtExperimentAuthorLabel">Author</string>
+    <string name="experiment_details_txtExperimentPackageIDLabel">PackageID</string>
+    <string name="experiment_details_txtExperimentDescriptionLabel">Description</string>
+    <string name="experiment_details_txtPluginsHeader">What will this experiment log?</string>
+    <string name="experiment_details_btnInstall">Install experiment</string>
+    <string name="experiment_details_btnRemove">Uninstall experiment</string>
+    <string name="experiment_details_txtExperimentInfoHeader">Information</string>
+    <string name="experiment_details_txtActionsHeader">Logged Data</string>
+    <string name="experiment_details_btnUploadNow">Upload logs now!</string>
+    <string name="experiment_details_btnDumpLogs">Dump logs do disk</string>
+    <string name="experiment_details_btnStart">Start experiment</string>
+    <string name="experiment_details_btnStop">Stop experiment</string>
+    <string name="experiment_details_txtUploadServerUrlLabel">Upload server</string>
+    <string name="experiment_details_txtUploadServerHeader_NoServerConfigured">This experiment doesn\'t upload log data to a remote server</string>
+    <string name="experiment_details_txtUploadServerHeader">This experiment will periodically upload data to the following server:</string>
+
+    <!-- Plugin Details ListviewItem -->
+    <string name="plugin_details_txtPluginNameLabel">Plugin:</string>
+    <string name="plugin_details_txtPluginName">[N/A]</string>
+    <string name="plugin_details_txtPluginDescription">[No description provided]</string>
+
+    <!-- DownloadExperiments activity -->
+    <string name="title_activity_download_experiments">Download Experiments</string>
+    <string name="download_experiments_txtContactingServer">Contacting server…</string>
+    <string name="download_experiments_txtAvailableExperimentsHeader">Here you can download new experiments to run on your device</string>
+    <string name="download_experiments_txtNoExperiments_noResults">No experiments available at this time. You can try again later or change the download server in the Settings</string>
+    <string name="download_experiments_txtNoExperiments_failed">Failed to fetch the experiment list form the server. Server is unreachable or a connection error occurred (Are you connected to the internet?)</string>
+    <string name="download_experiments_txtButtonDownload">Download</string>
+    <string name="download_experiments_txtButtonManage">Manage</string>
+
+
+    <!-- Settings activity -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="experiment_details_btnDelete">Delete experiment</string>
+    <string name="title_activity_import_experiment">Import experiment</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="import_experiment_txtHeader">Importing experiment. Please wait…</string>
+    <string name="startDeltaServicePermission_description">Permission to interact with DELTA Services. An App with this permission can start and stop DELTA experiments and extract logged data from them.</string>
+    <string name="experiment_details_txtExperimentStatusLabel">Status</string>
+    <string name="title_activity_tabbed_main">DELTA Manager</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="experiment_details_txtExperimentCertificateLabel">Certificate and Signature</string>
+    <string name="fragment_certificate_details_certificateError_head">Certificate problem!</string>
+    <string name="fragment_certificate_details_certificateError_body">The experiment package does not contain a digital signature, or the certificate associated with it is corrupt/missing.\nInstall at your own risk!</string>
+    <string name="fragment_manage_experiments_tvNoExperiments">You haven\'t obtained any experiments to run yet. You can start by downloading one from the Download section, or importing one stored on your device.</string>
+
+
+</resources>

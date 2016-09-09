@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
+    defaultConfig {
+        applicationId "unipd.elia.deltacore"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+repositories {
+    maven {
+        url "http://ksoap2-android.googlecode.com/svn/m2-repo"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':delta.sharedlib')
+    compile project(':delta.androidsharedlib')
+    compile 'com.android.support:support-v13:22.2.1'
+    compile 'com.beardedhen:androidbootstrap:+'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    compile 'com.github.bluejamesbond:textjustify-android:2.1.0'
+    compile 'com.google.code.ksoap2-android:ksoap2-android:3.4.+'
+    compile 'com.ogaclejapan.smarttablayout:library:1.2.2@aar'
+    compile 'com.ogaclejapan.smarttablayout:utils-v13:1.2.2@aar'
+}

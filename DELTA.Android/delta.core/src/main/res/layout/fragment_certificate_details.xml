@@ -1,0 +1,97 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/fragment_certificate_details_layoutCertificateError">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_red_light"
+                android:text="@string/fragment_certificate_details_certificateError_head"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textSize="14dp"
+                android:text="@string/fragment_certificate_details_certificateError_body"/>
+        </LinearLayout>
+
+
+        <TableLayout
+            android:id="@+id/fragment_certificate_details_layoutCertificateDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Author DN"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:layout_marginRight="6dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/fragment_certificate_details_txtSubjectDN" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Issuer DN"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:layout_marginRight="6dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/fragment_certificate_details_txtIssuerDN" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expires on"
+                    android:layout_gravity="center_vertical"
+                    android:textStyle="bold"
+                    android:layout_marginRight="6dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/fragment_certificate_details_txtNotAfter" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</LinearLayout>

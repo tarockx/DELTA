@@ -1,0 +1,37 @@
+//experiment maker build script
+//apply plugin: 'gradle-javafx'
+//apply plugin: 'javafx'
+
+apply from: "http://dl.bintray.com/content/shemnon/javafx-gradle/0.4.0/javafx.plugin"
+//apply from: 'http://repository-javafx-gradle-plugin.forge.cloudbees.com/snapshot/0.5.0-SNAPSHOT/javafx.plugin'
+
+/*
+buildscript {
+    repositories {
+        flatDir dirs: "../libs"
+    }
+    dependencies {
+        classpath "org.bitbucket.shemnon.javafxplugin:gradle-javafx-plugin:0.5.0-SNAPSHOT"
+		classpath files("${System.properties['java.home']}/../lib/ant-javafx.jar")
+    }
+}
+
+
+if (!project.plugins.findPlugin(org.bitbucket.shemnon.javafxplugin.JavaFXPlugin)) {
+    project.apply(plugin: org.bitbucket.shemnon.javafxplugin.JavaFXPlugin)
+}
+*/
+
+//mainClassName = 'delta.desktoptools.manifestgenerator.MainClass'
+
+javafx{
+    //mainClass = 'delta.desktoptools.experimentmaker.Main'
+    packaging = 'image'
+}
+
+dependencies {
+	compile project(':delta.sharedlib')
+	compile project(':delta.desktoptools.library')
+	compile files('../libs/jfxmessagebox-1.1.0.jar')
+}
+

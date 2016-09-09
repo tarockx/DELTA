@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+
+    android:layout_gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="6dp"
+    card_view:contentPadding="10dp"
+    card_view:cardUseCompatPadding="true">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:id="@+id/downloadable_experiment_txtExperimentName"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="by"
+                    android:layout_marginRight="4dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:id="@+id/downloadable_experiment_txtExperimentAuthor"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:id="@+id/downloadable_experiment_progressBarDownloading"/>
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/downloadable_experiment_btnDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/download_experiments_txtButtonDownload"
+                bootstrap:bb_icon_left="fa-cloud-download"
+                bootstrap:bb_type="success"
+                />
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/downloadable_experiment_btnManage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/download_experiments_txtButtonManage"
+                bootstrap:bb_icon_left="fa-info-circle"
+                bootstrap:bb_type="primary"
+                />
+        </TableLayout>
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

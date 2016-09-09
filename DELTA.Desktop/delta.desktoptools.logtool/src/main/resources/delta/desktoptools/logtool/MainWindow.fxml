@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="delta.desktoptools.logtool.MainWindowController">
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="NEVER" />
+        <RowConstraints minHeight="300.0" vgrow="ALWAYS" />
+        <RowConstraints minHeight="10.0" vgrow="NEVER" />
+    </rowConstraints>
+    <children>
+      <Label alignment="TOP_CENTER" text="DELTA Log Management Tool" textAlignment="CENTER" GridPane.halignment="CENTER">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="5.0" />
+         </GridPane.margin>
+      </Label>
+      <GridPane GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="160.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="160.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Experiment ID:" />
+            <Label fx:id="labelExperimentId" text="N/A" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label text="User ID:" GridPane.columnIndex="2" />
+            <Label fx:id="labelUserId" text="N/A" GridPane.columnIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label text="Entry count:" GridPane.rowIndex="1" />
+            <Label fx:id="labelEntryCount" text="N/A" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Time span:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label fx:id="labelTimespan" text="N/A" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+
+             <Button fx:id="buttonMergeUserLogsAndExport" alignment="TOP_LEFT" mnemonicParsing="false" text="Export all logs for this user" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                 <font>
+                     <Font name="System Bold" size="14.0" />
+                 </font>
+             </Button>
+             <Button fx:id="buttonExportSingleLogfile" alignment="TOP_LEFT" mnemonicParsing="false" text="Export single log fragment" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                 <font>
+                     <Font name="System Bold" size="14.0" />
+                 </font>
+             </Button>
+             <Button fx:id="buttonMergeExperimentLogsAndExport" alignment="TOP_LEFT" mnemonicParsing="false" text="Export all logs for this experiment" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                 <font>
+                     <Font name="System Bold" size="14.0" />
+                 </font>
+             </Button>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="2">
+               <children>
+                  <Label text="Binary files:" />
+                  <RadioButton fx:id="radioBinaryMerge" mnemonicParsing="false" selected="true" text="Merge into single file">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="binaryOptions" />
+                     </toggleGroup>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="radioBinaryKeepSegmented" mnemonicParsing="false" text="Keep segmented" toggleGroup="$binaryOptions">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></RadioButton>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" GridPane.rowIndex="1">
+        <items>
+            <TreeView fx:id="treeViewLogs" prefHeight="200.0" prefWidth="200.0" />
+            <VBox fx:id="vboxLogPreview">
+               <children>
+                  <HBox>
+                     <children>
+                        <Label text="Quick preview:">
+                           <HBox.margin>
+                              <Insets right="10.0" top="2.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comboLogPreview" maxWidth="1.7976931348623157E308" minWidth="150.0" promptText="Chose a log to preview..." HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ComboBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label text="Format: ">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <RadioButton mnemonicParsing="false" selected="true" text="CSV">
+                           <HBox.margin>
+                              <Insets right="10.0" top="2.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="format" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="JSON" toggleGroup="$format">
+                           <HBox.margin>
+                              <Insets top="2.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <TextArea fx:id="txtLogPreview" editable="false" maxHeight="1.7976931348623157E308" VBox.vgrow="SOMETIMES">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </TextArea>
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" />
+   </columnConstraints>
+</GridPane>

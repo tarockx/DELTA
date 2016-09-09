@@ -1,0 +1,20 @@
+//webserver build script
+
+//apply plugin: 'application'
+apply plugin: 'java'
+
+//mainClassName = 'unipd.elia.delta.webservices.MainClass'
+
+dependencies {
+	compile project(':delta.sharedlib')
+	compile project(':delta.desktoptools.library')
+}
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'unipd.elia.delta.webservices.MainClass'
+	}
+	doFirst {
+		from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+	}
+}

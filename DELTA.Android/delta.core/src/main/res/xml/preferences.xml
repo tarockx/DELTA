@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:key="deltaServerAddress"
+        android:defaultValue="http://192.168.1.56:20123/delta/deltaservice"
+        android:title="DELTA Server address"
+        android:summary="The URL of the server from which new experiments can be downloaded. The official DELTA server is the default, but you can set a third-party or self-hosted one if you wish."></EditTextPreference>
+</PreferenceScreen>

@@ -1,0 +1,137 @@
+import java.lang.reflect.Method
+import java.util.zip.ZipFile
+
+def writePluginManifests(){
+    def pjs = getAllPluginProjects()
+
+    File desktopLibrary = new File(desktopLibraryPath)
+    URL[] urls = new URL[1]
+    urls[0] = desktopLibrary.toURI().toURL()
+    URLClassLoader childClassLoader = new URLClassLoader (urls, this.getClass().getClassLoader());
+    Class deltaManifestHelperClass = childClassLoader.loadClass("delta.desktoptools.library.DeltaManifestHelper")
+    Method writeDeltaManifestMethod = deltaManifestHelperClass.getMethod("writeDeltaManifest", String, String)
+
+    try {
+        pjs.each { p ->
+            println "== DELTA : Writing DELTAPlugin Manifests for project [" + p.name + "] =="
+            File pdir = file(p.projectDir)
+            File srcDir = file(pdir.absolutePath + "/src/main")
+            File destFile = file(pdir.absolutePath + "/src/main/assets/DeltaManifest.xml")
+            if (destFile.exists())
+                destFile.delete()
+            writeDeltaManifestMethod.invoke(null, srcDir.canonicalPath, destFile.canonicalPath)
+        }
+    }
+    catch (Exception ex){
+        ex.printStackTrace()
+    } finally{
+        childClassLoader.close()
+    }
+
+}
+
+Set<Project> getAllPluginProjects(){
+    Set<Project> pluginPrjs = new HashSet<Project>()
+    println "== DELTA : Scanning solution, fetching all DELTAPlugin projects..."
+    try {
+        //prepare classloader
+        File desktopLibrary = new File(desktopLibraryPath)
+        URL[] urls = new URL[1]
+        urls[0] = desktopLibrary.toURI().toURL()
+        URLClassLoader childClassLoader = new URLClassLoader (urls, this.getClass().getClassLoader());
+        Class deltaManifestHelperClass = childClassLoader.loadClass("delta.desktoptools.library.DeltaManifestHelper")
+        Method isDeltaPluginProjectMethod = deltaManifestHelperClass.getMethod("isDeltaPluginProject", String)
+
+        //check all plugins
+        rootProject.allprojects.each { p ->
+            println '== DELTA : Project found: ' + p.name + ". Examining..."
+            File pdir = file(p.projectDir)
+            //ClassLoader rootLoader = ClassLoader.getSystemClassLoader()
+
+
+            boolean isPluginProject = isDeltaPluginProjectMethod.invoke(null, file(pdir.absolutePath + "/src/main").getAbsolutePath())
+            if(isPluginProject){
+                println "== DELTA : Project contains plugins, adding..."
+                pluginPrjs.add(p)
+            }
+
+        }
+
+        //unload classloader
+        childClassLoader.close()
+    }
+    catch(Exception ex){
+        ex.printStackTrace()
+        throw ex
+    }
+
+    return  pluginPrjs
+}
+
+def getPluginsToInclude(){
+    String expPath = "$experimentConfigurationPath"
+    println "== DELTA : Experiment configuration path is: " + expPath + " - Reading... =="
+    Set<String> pluginsToInclude = new HashSet<>()
+    Set<String> packagesToInclude = new HashSet<>()
+    Set<String> externalPackagesToInclude = new HashSet<>()
+    String fileContents = new File(expPath).text
+    def deltaExperiment = new XmlSlurper().parseText(fileContents)
+    def pluginClasses = deltaExperiment.Plugins.PluginClass
+    pluginClasses.each{ pc ->
+        pluginsToInclude.add(pc.@PluginPackage.toString())
+        println "== DELTA: Plugin package to include: " + pc.@PluginPackage + " =="
+    }
+
+    rootProject.allprojects.each { p ->
+        File pdir = file(p.projectDir)
+        File pluginManifestFile = file(pdir.absolutePath + "/src/main/AndroidManifest.xml")
+        if(pluginManifestFile.exists()){
+            String manifestContents = pluginManifestFile.text
+            def pluginManifestXml = new XmlSlurper().parseText(manifestContents)
+            String pluginPackage = pluginManifestXml.@package.toString()
+            if(pluginPackage != null && !pluginPackage.isEmpty() && pluginsToInclude.contains(pluginPackage)){
+                packagesToInclude.add(p.getPath())
+                println "== DELTA: matching plugin project found, including in compilation: " + p.getName() + " =="
+            }
+        }
+    }
+
+    //We couldn't find all plugins in the source tree, but maybe we have them as external AAR packages
+    if(pluginsToInclude.size() > packagesToInclude.size() && hasProperty("externalPluginsDir")){
+		println "== DELTA: Missing plugins, trying to scan external directory for possible candidates..."
+        File externalPluginsDir = new File(externalPluginsDir)
+        externalPluginsDir.listFiles().each {file->
+            if(!file.isDirectory() && file.getName().toLowerCase().endsWith(".aar")){
+				println "== DELTA: Checking file: " + file.getName()
+                def zipFile = new ZipFile(file)
+                String packageID = null
+
+                zipFile.entries().findAll { !it.directory && it.getName().equals("assets/DeltaManifest.xml") }.each {
+					println "== DELTA: DeltaManifest.xml found! Reading..."
+                    def pluginManifestXml = new XmlSlurper().parseText(zipFile.getInputStream(it).text)
+                    packageID = pluginManifestXml.@packageID
+					println "== DELTA: DeltaManifest read, package ID is: " + packageID
+                }
+                zipFile.close()
+                if(packageID != null && pluginsToInclude.contains(packageID) && !packagesToInclude.contains(packageID)){
+					println "== DELTA: Including plugin from external file: " + file.getName()
+                    externalPackagesToInclude.add(file.getName())
+                }
+            }
+        }
+    }
+
+    if(packagesToInclude.size() + externalPackagesToInclude.size() != pluginsToInclude.size())
+        throw new Exception("== DELTA: Couldn't find all the plugins specified in the experiment configuration file! Aborting compilation...")
+
+    return [plugins : packagesToInclude, externalPlugins : externalPackagesToInclude, package : deltaExperiment.@ExperimentPackage.toString()]
+}
+
+
+// Export methods by turning them into closures
+ext{
+    writePluginManifests = this.&writePluginManifests
+    getPluginsToInclude = this.&getPluginsToInclude
+    getAllPluginProjects = this.&getAllPluginProjects
+    desktopLibraryPath = hasProperty("deltaDesktopLibraryPath") ? deltaDesktopLibraryPath : rootProject.projectDir.parentFile.getAbsolutePath() + "/bin/delta.desktoptools.library.jar"
+}

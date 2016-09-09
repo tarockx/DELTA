@@ -1,0 +1,2 @@
+include ':delta.sharedlib', ':delta.desktoptools.library', 'delta.desktoptools.manifestgenerator', ':delta.desktoptools.experimentmaker', ':delta.desktoptools.logtool', ':delta.webserver'
+
