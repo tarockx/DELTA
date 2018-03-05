@@ -1,4 +1,5 @@
 DELTA: Data Extraction and Logging Tool for Android
+
 http://spritz.math.unipd.it/projects/deltaloggingtool/
 
 Riccardo Spolaor, Elia Dal Santo, Mauro Conti. 
