@@ -4,10 +4,16 @@
 function buildTools {
 	cd DELTA.Desktop
 	echo -e "\n\nBuilding DELTA Tools.\nIf this is your first build, please be patient as a copy of the Gradle bundle will be downloaded..."
-	chmod +x ./gradlew
 	./gradlew deltabuild
 	cd ..
-}  
+}
+
+function buildDeltaCore {
+	cd DELTA.Android
+	./gradlew :delta.core:assemble &&
+	echo "Building complete. The APK files are located under DELTA.Android/delta.core/build/outputs/apk/"
+	cd ..
+}
 
 function launchExperimentMaker {
 	cd bin
@@ -19,6 +25,13 @@ function launchLogTool {
 	cd bin
 	java -jar delta.desktoptools.logtool.jar
 	cd ..
+}
+
+function launchWebService {
+	cd bin
+	echo "Note: Delta Web Server settings can be changed in bin/delta_settings.ini"
+	java -jar delta.webserver.jar
+	cd..
 }
 
 clear
@@ -37,17 +50,21 @@ IMPORTANT: Before attempting to build the DELTA Tools, please ensure that you ha
 Please enter your choice:
 
 (1) Build DELTA Tools
-(2) Launch Experiment Maker
-(3) Launch Log Tool
-(4) Quit
+(2) Build DELTA Core App
+(3) Launch Experiment Maker
+(4) Launch Log Tool
+(5) Start the DELTA Web Service
+(6) Quit
 ------------------------------
 EOF
     read -n1 -s
     case "$REPLY" in
     "1")  buildTools ;;
-    "2")  launchExperimentMaker ;;
-    "3")  launchLogTool ;;
-    "4")  exit                      ;;
+    "2")  buildDeltaCore ;;
+    "3")  launchExperimentMaker ;;
+    "4")  launchLogTool ;;
+    "5")  launchWebService ;;
+    "6")  exit                      ;;
      * )  echo "Invalid option, please try again"     ;;
     esac
     sleep 1
